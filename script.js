@@ -14,7 +14,7 @@ const CONFIG = {
     // Màn hình 2: Bức thư
     letterInstruction: "Em thử mở thư xem bên trong có gì hong? 💌",
     letterText: "He luu, hôm nay là một ngày đặc biệt nên anh có chuẩn bị một thứ nho nhỏ cho em. Không biết em có tò mò hong, nhưng mà cứ khám phá hết thử nha hơ hơ. 🌷",
-    letterSignature: "— người gửi quà giấu tên? ♡",
+    letterSignature: "P người gửi quà giấu tên? ♡",
 
     // Màn hình 3: Khu vườn tương tác
     gardenItems: {
