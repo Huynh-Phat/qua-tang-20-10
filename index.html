@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Little Gift for You 🌷</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Nút âm thanh -->
+    <button id="music-btn" class="music-btn" aria-label="Toggle Music">♫ Bật nhạc</button>
+    <audio id="bg-music" loop>
+        <source src="assets/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="app">
+        <!-- Màn hình 1: Welcome Screen -->
+        <section id="screen-welcome" class="screen active">
+            <div class="content flex-col-center">
+                <div class="floating-elements" id="welcome-bg"></div>
+                <h1 class="title font-handwriting" id="welcome-title">Hello quý cô xinh đẹp =)))</h1>
+                <p class="subtitle" id="welcome-subtitle">Chào mừng em đến với dự án bí mật mang tên: Làm cho một người vui lên trong ngày 20/10 🌷🎀</p>
+                
+                <div class="gift-box-container" id="gift-box">
+                    <div class="gift-box">
+                        <div class="gift-lid">
+                            <div class="gift-bow"></div>
+                        </div>
+                        <div class="gift-body"></div>
+                    </div>
+                    <div class="shadow"></div>
+                </div>
+                
+                <p class="date">20.10.2026</p>
+                <button class="btn-primary mt-2" id="btn-open-gift">Mở quà thui ♡</button>
+            </div>
+        </section>
+
+        <!-- Màn hình 2: Open the Letter -->
+        <section id="screen-letter" class="screen hidden">
+            <div class="content flex-col-center">
+                <div class="instruction">
+                    <p class="subtitle" id="letter-instruction">Em thử mở thư xem bên trong có gì hong? 💌</p>
+                </div>
+                
+                <div class="envelope-container" id="envelope-container">
+                    <div class="envelope">
+                        <div class="envelope-flap"></div>
+                        <div class="envelope-body"></div>
+                        <div class="envelope-heart">❤️</div>
+                        <div class="letter-inside">
+                            <p class="letter-text" id="letter-text"></p>
+                            <p class="letter-signature" id="letter-signature"></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn-primary hidden mt-2" id="btn-next-garden">Khám phá tiếp thui &rarr;</button>
+            </div>
+        </section>
+
+        <!-- Màn hình 3: Explore the Garden -->
+        <section id="screen-garden" class="screen hidden">
+            <div class="content">
+                <div class="text-center mb-2">
+                    <h2 class="title font-handwriting">Một khu vườn nhỏ 🌼</h2>
+                    <p class="subtitle">Chạm thử mấy món đồ xung quanh đi, biết đâu có điều bất ngờ nho nhỏ đó.</p>
+                    <p class="progress-text" id="garden-progress">Đã khám phá 0/4 điều dễ thương</p>
+                </div>
+
+                <div class="garden-grid">
+                    <!-- Đối tượng A: Hoa -->
+                    <div class="garden-item" id="item-flower">
+                        <div class="item-icon">🌺</div>
+                        <div class="item-shadow"></div>
+                    </div>
+                    <!-- Đối tượng B: Ngôi sao -->
+                    <div class="garden-item" id="item-star">
+                        <div class="item-icon">✨</div>
+                        <div class="item-shadow"></div>
+                    </div>
+                    <!-- Đối tượng C: Mèo -->
+                    <div class="garden-item" id="item-cat">
+                        <div class="item-icon">🐱</div>
+                        <div class="item-shadow"></div>
+                    </div>
+                    <!-- Đối tượng D: Hộp bí mật -->
+                    <div class="garden-item" id="item-box">
+                        <div class="item-icon">🎁</div>
+                        <div class="item-shadow"></div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-3">
+                    <button class="btn-primary" id="btn-next-card">Nhận lời chúc tiếp theo ♡</button>
+                </div>
+            </div>
+
+            <!-- Popup modal -->
+            <div id="popup-modal" class="modal hidden">
+                <div class="modal-content">
+                    <button class="btn-close" id="btn-close-popup">&times;</button>
+                    <p class="modal-text" id="popup-text"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Màn hình 4: Greeting Card -->
+        <section id="screen-card" class="screen hidden">
+            <div class="content flex-col-center">
+                <div class="greeting-card">
+                    <div class="card-decor">🌸 🎀 🌸</div>
+                    <h2 class="card-title font-handwriting" id="card-title">Chúc em một ngày 20/10 thật dịu dàng</h2>
+                    <div class="card-body" id="card-body">
+                        <!-- Nội dung sẽ được render từ JS -->
+                    </div>
+                    <p class="card-footer font-handwriting" id="card-footer">Gửi em một chút dịu dàng ♡</p>
+                </div>
+                
+                <button class="btn-primary mt-3" id="btn-next-final">Ủa, còn một thứ nữa nè cô ... 🎁</button>
+            </div>
+        </section>
+
+        <!-- Màn hình 5: Final Surprise -->
+        <section id="screen-final" class="screen hidden">
+            <div class="content flex-col-center">
+                <h2 class="title font-handwriting">Khoan về đãaa, còn một thứ cuối cùng nè 👀</h2>
+                <p class="subtitle mb-2">Phần thưởng bao gồm: 100% lời chúc, 200% sự dễ thương và 0% khả năng đổi trả =)))</p>
+                
+                <div class="final-gift-container" id="final-gift-container">
+                    <div class="final-gift-box">💎</div>
+                </div>
+
+                <div class="final-message-container hidden" id="final-message-container">
+                    <div class="bouquet">💐💐💐</div>
+                    <p class="final-text" id="final-text"></p>
+                    <p class="final-closing font-handwriting" id="final-closing"></p>
+                </div>
+                
+                <div class="action-buttons mt-3">
+                    <button class="btn-primary" id="btn-open-final">Mở món quà cuối cùng 🎀</button>
+                    <button class="btn-secondary hidden" id="btn-restart">Xem lại món quà ↺</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
